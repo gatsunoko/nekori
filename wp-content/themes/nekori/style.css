@@ -1,0 +1,245 @@
+@charset "utf-8";
+
+body {
+  font-family: Arial, Verdana, sans-serif;
+}
+.container {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+.header {
+  width: 100%;
+}
+  .site_title {
+    text-align: center;
+    font-size: 36px;
+  }
+  .site_title a {
+    text-decoration: none;
+    color: #5A4200;
+  }
+
+.contants {
+  overflow: hidden;
+  width: 100%;
+}
+  .left_sidebar {
+    box-sizing: border-box;
+    float: left;
+    width: 144px;
+  }
+    .categories {
+      padding-right: 5px;
+    }
+      .categories a {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        color: #c2c2c2;
+        font-size: 12px;
+        padding: 8px 0 8px 5px;
+        text-decoration: none;
+      }
+      .categories a:hover {
+        color: black;
+        background: #c2c2c2;
+      }
+
+  .articles_area {
+    box-sizing: border-box;
+    width: 570px;
+    float: left;
+  }
+    .picup_article {
+      text-decoration: none;
+    }
+      .picup_article > .thumbnail {
+        height: 370px;
+        width: 100%;
+        background-position: 50% center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .picup_article > .text_area {
+        background-color: #feffe6;
+        padding: 15px;
+        margin-bottom: 5px;
+      }
+        .picup_article .title {
+          font-size: 18px;
+          line-height: 20px;
+          color: #686d14 ;
+        }
+
+    .new_articles {
+    }
+      .new_articles > .article {
+        box-sizing: border-box;
+        height: 400px;
+        width: 285px;
+        font-size: 0;
+        margin: 3px 0;
+        overflow: hidden;
+        display: inline-block;
+      }
+      .new_articles > .article:nth-child(odd) {
+        padding-right: 2px;
+      }
+      .new_articles > .article:nth-child(even) {
+        padding-left: 2px;
+      }
+        .new_articles .thumbnail {
+          box-sizing: border-box;
+          width: 100%;
+          height: 283px;
+          background-size: cover;
+          background-position: center;
+          display: inline-block;
+        }
+        .new_articles .text_area {
+          box-sizing: border-box;
+          width: 100%;
+          height: 115px;
+          padding: 5px;
+          display: inline-block;
+          position: relative;
+          border: 1px solid #c2c2c2;
+        }
+          .new_articles .title {
+            font-size: 16px;
+            color: black;
+            /* ...表示ここから */
+            height: 65px;
+            line-height: 1.4;
+            position: relative;
+            overflow: hidden;
+          }
+          .new_articles .title:before {
+            position: absolute;
+            background-color: #ffffff;
+            content: "...";
+            top: 39.2px;
+            right: 0;
+          }
+          .new_articles .title:after {
+            position: absolute;
+            background: #ffffff;
+            content: "";
+            height: 100%;
+            width: 100%;
+          }
+          /* ...表示ここまで */
+          .new_articles .contributor {
+            color: #c2c2c2;
+            font-size: 11px;
+            height: 15px;
+            position: absolute;
+            bottom: 5px;
+            right: 5px; 
+          }
+
+  .right_sidebar {
+    box-sizing: border-box;
+    width: 310px;
+    float: left; 
+    padding: 0 0 0 5px;
+  }
+    .right_sidebar > .sidebar_title {
+      font-size: 16px;
+      text-align: center;
+      color: black;
+      border-bottom: 1px solid black;
+    }
+    .ranking_articles {
+      background: #F4F9FD;
+    }
+      .ranking_articles > .article {
+        box-sizing: border-box;
+        height: 75px;
+        width: inherit;
+        font-size: 0;
+        margin: 3px 0;
+        overflow: hidden;
+      }
+        .ranking_articles .thumbnail {
+          box-sizing: border-box;
+          width: 75px;
+          height: 75px;
+          background-size: cover;
+          background-position: center;
+          display: inline-block;
+        }
+        .ranking_articles .text_area {
+          box-sizing: border-box;
+          width: 230px;
+          height: 75px;
+          padding: 0 5px;
+          display: inline-block;
+          overflow: hidden;
+          position: relative;
+        }
+          .ranking_articles .title {
+            width: 222px;
+            font-size: 14px;
+            color: black;
+            /* ...表示ここから */
+            height: 36px;
+            line-height: 1.4;
+            position: relative;
+            overflow: hidden;
+          }
+          .ranking_articles .title:before {
+            position: absolute;
+            background: #F4F9FD;
+            content: "...";
+            top: 15.2px;
+            right: 0;
+          }
+          .ranking_articles .title:after {
+            position: absolute;
+            background: #F4F9FD;
+            content: "";
+            height: 100%;
+            width: 100%;
+          }
+          /* ...表示ここまで */
+          .ranking_articles .contributor {
+            color: #c2c2c2;
+            font-size: 11px;
+            position: absolute;
+            bottom: 5px;
+            right: 5px; 
+          }
+    .site_about > a {
+      display: block;
+      box-sizing: border-box;
+      width: 305px;
+      text-align: center;
+      color: #5C5C5C;
+      border: 1px solid black;
+      text-decoration: none;
+      padding: 15px 0;
+    }
+
+.footer {
+  width: 100%;
+  height: 150px;
+}
+  .footer .title {
+    height: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .footer .text {
+    height: 50px;
+    font-size: 14px;
+    text-align: center;
+  }
+  .copyright {
+    height: 25px;
+    font-size: 12px;
+    color: black;
+    text-align: center;
+  }
