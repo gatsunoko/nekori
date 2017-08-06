@@ -26,7 +26,7 @@
           <a href="#">
             <div class="thumbnail" style="background-image: url('img/img1.jpg')"></div>
               <div class="text_area">
-              <p class="title">あらゆるシーンを攻略♡ユニクロ「ワイドパンツ」コーデ14選</p>
+              <p class="title">あらゆるシーンを攻略攻略攻略攻略1</p>
               <p class="contributor">おおのくん</p>
             </div>
           </a>
