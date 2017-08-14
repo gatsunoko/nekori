@@ -51,6 +51,9 @@ body {
     width: 570px;
     float: left;
   }
+    .articles_area img {
+      max-width: 100%;
+    }
     .picup_article {
       text-decoration: none;
     }
