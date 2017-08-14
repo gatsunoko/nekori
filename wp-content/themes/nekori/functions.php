@@ -30,6 +30,11 @@ function most_viewed_posts() {
       'meta_key' => 'views',
       'orderby' => 'meta_value_num',
       'order' => 'DESC',
+      'date_query' => array(
+        array(
+          'year' => date( 'Y' ),
+          'month' => date( 'M' ),
+        ),
       'posts_per_page' => 5
     ));
     
