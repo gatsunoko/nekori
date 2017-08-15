@@ -102,9 +102,6 @@ body {
     width: 570px;
     float: left;
   }
-    .articles_area img {
-      max-width: 100%;
-    }
     .picup_article {
       text-decoration: none;
     }
@@ -192,6 +189,18 @@ body {
             bottom: 5px;
             right: 5px; 
           }
+  .article_area {
+    box-sizing: border-box;
+    width: 714px;
+    float: left;
+  }
+    .article_area .img_area {
+      width: 100%;
+      text-align: center;
+    }
+    .article_area img {
+      max-width: 100%;
+    }    
 
   .right_sidebar {
     box-sizing: border-box;

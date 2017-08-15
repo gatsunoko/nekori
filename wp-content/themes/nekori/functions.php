@@ -68,15 +68,12 @@ add_shortcode('most_viewed', 'most_viewed_posts');
 add_filter('widget_text', 'do_shortcode');
 //---------------人気記事一覧を表示　ここまで-----------------------
 //---------------インスタグラムの画像表示のショートコード-----------------------
-function insta_s($url) {
-  return "<img src='{$url[0]}/media/?size=t' alt='article_img'>";
+function insta_img($attr) {
+  $img_url = substr($attr[1], 0, strcspn($attr[1],'?'));
+  if (mb_substr($img_url, -1) == "/") {
+    $img_url = substr($img_url, 0, -1);
+  }
+  return "<div class='img_area'><img src='{$img_url}/media/?size={$attr[0]}' alt='article_img'></div>";
 }
-function insta_m($url) {
-  return "<img src='{$url[0]}/media/?size=m' alt='article_img'>";
-}
-function insta_l($url) {
-  return "<img src='{$url[0]}/media/?size=l' alt='article_img'>";
-}
-add_shortcode('insta_s', 'insta_s');
-add_shortcode('insta_m', 'insta_m');
-add_shortcode('insta_l', 'insta_l');
+
+add_shortcode('insta_img', 'insta_img');
