@@ -19,11 +19,64 @@ function the_slug() {
 
 add_theme_support('post-thumbnails');
 
-register_sidebar(
-  array(
-    'before_widget' => '<div class="widget">',
-    'after_widget' => '</div>',
-    'before_title' => '<h3>',
-    'after_title' => '</h3>',
-  )
-);
+//---------------人気記事一覧を表示-----------------------
+function most_viewed_posts() {
+  ob_start(); // Buffer output
+?>
+<ul class="ranking_articles">
+  <?php
+    // 以下のWP_Queryで表示回数上位５件の記事を取得
+    $query = new WP_Query(array(
+      'meta_key' => 'views',
+      'orderby' => 'meta_value_num',
+      'order' => 'DESC',
+      'date_query' => array(
+        array(
+          'year' => date( 'Y' ),
+          'month' => date( 'M' ),
+        )
+       ),
+      'posts_per_page' => 5
+    ));
+    
+    // 以下のwhileループで上記で取得した人気上位５件の記事をhtml含めて出力
+    while ($query->have_posts()) : $query->the_post();
+  ?>
+  <li class="article">
+    <a href="<?php the_permalink(); ?>">
+      <div class="thumbnail" style="background-image: url('<?php echo get_the_post_thumbnail_url( $post_id, 'large' ); ?>')">
+      </div>
+      <div class="text_area">
+          <p class="title"><?php the_title(); ?></p>
+          <p class="contributor"><?php the_author(); ?></p>
+      </div>
+    </a>
+  </li>
+  <?php
+    endwhile;
+  ?>
+</ul>
+<?php
+$output = ob_get_clean(); // clear buffer
+return $output;
+}
+ 
+// most_viewd_posts()のショートコードを作成
+add_shortcode('most_viewed', 'most_viewed_posts');
+ 
+// ショートコードをテキストウィジェットで使用できるようにするためのフィルタ
+add_filter('widget_text', 'do_shortcode');
+//---------------人気記事一覧を表示　ここまで-----------------------
+//---------------インスタグラムの画像表示のショートコード-----------------------
+function insta_s($url) {
+  return "<img src='{$url[0]}/media/?size=t' alt='article_img'>";
+}
+function insta_m($url) {
+  return "<img src='{$url[0]}/media/?size=m' alt='article_img'>";
+}
+function insta_l($url) {
+  return "<img src='{$url[0]}/media/?size=l' alt='article_img'>";
+}
+add_shortcode('insta_s', 'insta_s');
+add_shortcode('insta_m', 'insta_m');
+add_shortcode('insta_l', 'insta_l');
