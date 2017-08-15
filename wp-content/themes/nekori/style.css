@@ -7,47 +7,47 @@ body {
 /* wordpress記事用css */
 /* editor */
 
-.articles_area p {
+.article_area p {
     display: block;
     margin: 1em 0;
 }
-.articles_area strong { font-weight: bold; }
-.articles_area em { font-style: italic; }
-.articles_area blockquote {
+.article_area strong { font-weight: bold; }
+.article_area em { font-style: italic; }
+.article_area blockquote {
     display: block;
     -webkit-margin-before: 1em;
     -webkit-margin-after: 1em;
     -webkit-margin-start: 40px;
     -webkit-margin-end: 40px;
 }
-.articles_area h2 {
+.article_area h2 {
   font-size: 20px;
 }
-.articles_area h3 {
+.article_area h3 {
   font-size: 16px;
 }
 /* img */
  
-.articles_area .aligncenter {
+.article_area .aligncenter {
     display: block;
     margin: 0 auto;
 }
-.articles_area .alignright { float: right; }
-.articles_area .alignleft { float: left; }
+.article_area .alignright { float: right; }
+.article_area .alignleft { float: left; }
  
-.articles_area img[class*="wp-image-"],
-.articles_area img[class*="attachment-"] {
+.article_area img[class*="wp-image-"],
+.article_area img[class*="attachment-"] {
     height: auto;
     max-width: 100%;
 }
  
 /* clearfix */
  
-.articles_area .clearfix {
+.article_area .clearfix {
     overflow: hidden;
     zoom: 1;
 }
-.articles_area .clearfix:after {
+.article_area .clearfix:after {
     content: ""
     display: block;
     clear: both;
@@ -199,7 +199,7 @@ body {
       text-align: center;
     }
     .article_area img {
-      max-width: 100%;
+      max-width: 90%;
     }    
 
   .right_sidebar {

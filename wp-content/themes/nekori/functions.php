@@ -44,8 +44,16 @@ function most_viewed_posts() {
   ?>
   <li class="article">
     <a href="<?php the_permalink(); ?>">
-      <div class="thumbnail" style="background-image: url('<?php echo get_the_post_thumbnail_url( $post_id, 'large' ); ?>')">
-      </div>
+      <?php if ( has_post_thumbnail() ) { ?>
+        <div class="thumbnail" style="background-image: url('<?php echo get_the_post_thumbnail_url( $post_id, 'large' ); ?>')"></div>
+      <?php }
+      else {
+        $img_url = get_post_meta(get_the_id(), "サムネイル", true);
+        if (mb_substr($img_url, -1) == "/") {
+          $img_url = substr($img_url, 0, -1);
+        }?>
+        <div class="thumbnail" style="background-image: url('<?php echo $img_url ?>/media/?size=m')"></div>
+      <?php } ?>
       <div class="text_area">
           <p class="title"><?php the_title(); ?></p>
           <p class="contributor"><?php the_author(); ?></p>
