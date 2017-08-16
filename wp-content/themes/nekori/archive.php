@@ -5,14 +5,26 @@
     </div>
 
     <div class="articles_area">
-      <?php if (have_posts()) : while(have_posts()) : the_post(); ?>
-        <h2><?php the_title(); ?></h2>
-        <span class="date"><?php the_time("Y/m/d"); ?></span>
-        <span class="cate"><?php the_category(', '); ?></span>
-        <?php the_post_thumbnail(); ?>
-        <?php the_excerpt(); ?>
-        <?php edit_post_link(); ?>
-      <?php endwhile; endif; ?>
+      <ul class="new_articles">
+        <?php if (have_posts()) : while(have_posts()) : the_post(); ?><li class="article">
+            <a href="<?php the_permalink(); ?>">
+              <?php if ( has_post_thumbnail() ) { ?>
+                <div class="thumbnail" style="background-image: url('<?php echo get_the_post_thumbnail_url( $post_id, 'large' ); ?>')"></div>
+              <?php }
+              else {
+                $img_url = get_post_meta(get_the_id(), "サムネイル", true);
+                if (mb_substr($img_url, -1) == "/") {
+                  $img_url = substr($img_url, 0, -1);
+                }?>
+                <div class="thumbnail" style="background-image: url('<?php echo $img_url ?>/media/?size=m')"></div>
+              <?php } ?>
+                <div class="text_area">
+                <p class="title"><?php the_title(); ?></p>
+                <p class="contributor"><?php the_author(); ?></p>
+              </div>
+            </a>
+          </li><?php endwhile; endif; ?>
+      </ul>
     </div>
 
     <div class="right_sidebar">

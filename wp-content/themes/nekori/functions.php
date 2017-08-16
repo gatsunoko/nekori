@@ -44,16 +44,7 @@ function most_viewed_posts() {
   ?>
   <li class="article">
     <a href="<?php the_permalink(); ?>">
-      <?php if ( has_post_thumbnail() ) { ?>
-        <div class="thumbnail" style="background-image: url('<?php echo get_the_post_thumbnail_url( $post_id, 'large' ); ?>')"></div>
-      <?php }
-      else {
-        $img_url = get_post_meta(get_the_id(), "サムネイル", true);
-        if (mb_substr($img_url, -1) == "/") {
-          $img_url = substr($img_url, 0, -1);
-        }?>
-        <div class="thumbnail" style="background-image: url('<?php echo $img_url ?>/media/?size=m')"></div>
-      <?php } ?>
+      <?php echo thumbnail_view(); ?>
       <div class="text_area">
           <p class="title"><?php the_title(); ?></p>
           <p class="contributor"><?php the_author(); ?></p>
@@ -74,7 +65,6 @@ add_shortcode('most_viewed', 'most_viewed_posts');
  
 // ショートコードをテキストウィジェットで使用できるようにするためのフィルタ
 add_filter('widget_text', 'do_shortcode');
-//---------------人気記事一覧を表示　ここまで-----------------------
 //---------------インスタグラムの画像表示のショートコード-----------------------
 function insta_img($attr) {
   $img_url = substr($attr[1], 0, strcspn($attr[1],'?'));
@@ -85,3 +75,29 @@ function insta_img($attr) {
 }
 
 add_shortcode('insta_img', 'insta_img');
+
+//---------------urlから引っ張る通常の画像表示のショートコード-----------------------
+function view_img($attr) {
+  return "<div class='img_area'><img src='{$attr[0]}' alt='article_img'></div>";
+}
+
+add_shortcode('view_img', 'view_img');
+//--------------サムネ取得関数--------------
+function thumbnail_view() {
+  if ( has_post_thumbnail() ) {
+    $thumbnail_url = get_the_post_thumbnail_url( $post_id, 'large' );
+    return '<div class="thumbnail" style="background-image: url(' . $thumbnail_url . ')"></div>';
+  }
+  else {
+    $img_url = get_post_meta(get_the_id(), "サムネイル", true);
+    if (mb_substr($img_url, -1) == "/") {
+      $img_url = substr($img_url, 0, -1);
+    }
+    if (strpos($img_url, 'instagram.com') === false) {
+      return '<div class="thumbnail" style="background-image: url(' . $img_url . ')"></div>';
+     }
+    else {
+      return '<div class="thumbnail" style="background-image: url(' . $img_url . "/media/?size=m" . ')"></div>';
+    }
+  }
+}
