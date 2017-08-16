@@ -3,7 +3,6 @@
     <div class="left_sidebar">
       <?php get_sidebar('left'); ?>
     </div>
-
     <div class="articles_area">
       <ul class="new_articles">
         <?php if (have_posts()) : while(have_posts()) : the_post(); ?><li class="article">

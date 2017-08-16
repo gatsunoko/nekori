@@ -5,12 +5,12 @@
     </div>
 
     <div class="articles_area">
-      <?php $posts = get_posts('numberposts=1&category_name=meal');
+      <?php $posts = get_posts('numberposts=1&category_name=fashion');
       foreach ($posts as $post) {
         setup_postdata($post);
       ?>
       <a href="<?php the_permalink(); ?>" class="picup_article">
-        <div class="thumbnail" style="background-image: url('<?php echo get_the_post_thumbnail_url( $post_id, 'large' ); ?>')"></div>
+        <?php echo thumbnail_view(); ?>
         <div class="text_area">
           <p class="title"><?php the_title(); ?></p>
         </div>
