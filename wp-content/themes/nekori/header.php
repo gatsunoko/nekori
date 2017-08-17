@@ -5,7 +5,7 @@
   <title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
   <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
   <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>">
-  <?php wp_head ?>
+  <?php wp_head(); ?>
 </head>
 <body id="<?php the_slug(); ?>" <?php body_class(); ?>>
 <div class="container">
